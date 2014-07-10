@@ -1108,14 +1108,12 @@ def parsePlacesVisited(html):
         pageName = soup.findAll("div", {"class" : "_zs fwb"})
         pageCategory = soup.findAll("div", {"class" : "_dew _dj_"})
         tempList = []
-        count=0
         r = re.compile('a href="(.*?)\?ref=')
-        for x in pageName:
+        for i,x in enumerate(pageName):
                 m = r.search(str(x))
-                if m:
-                        pageCategory[count]
-                        tempList.append([uid,x.text,pageCategory[count].text,m.group(1)])
-                count+=1
+                if m and i<len(pageCategory):
+                        pageCategory[i]
+                        tempList.append([uid, x.text, pageCategory[i].text, m.group(1)])
         return tempList
 
 def parsePlacesLiked(html):
@@ -1123,14 +1121,12 @@ def parsePlacesLiked(html):
         pageName = soup.findAll("div", {"class" : "_zs fwb"})
         pageCategory = soup.findAll("div", {"class" : "_dew _dj_"})
         tempList = []
-        count=0
         r = re.compile('a href="(.*?)\?ref=')
-        for x in pageName:
+        for i,x in enumerate(pageName):
                 m = r.search(str(x))
-                if m:
-                        pageCategory[count]
-                        tempList.append([uid,x.text,pageCategory[count].text,m.group(1)])
-                count+=1
+                if m and i<len(pageCategory):
+                        pageCategory[i]
+                        tempList.append([uid, x.text, pageCategory[i].text, m.group(1)])
         return tempList
 
 
@@ -1139,14 +1135,12 @@ def parsePagesLiked(html):
         pageName = soup.findAll("div", {"class" : "_zs fwb"})
         pageCategory = soup.findAll("div", {"class" : "_dew _dj_"})
         tempList = []
-        count=0
         r = re.compile('a href="(.*?)\?ref=')
-        for x in pageName:
+        for i,x in enumerate(pageName):
                 m = r.search(str(x))
-                if m:
-                        pageCategory[count]
-                        tempList.append([uid,x.text,pageCategory[count].text,m.group(1)])
-                count+=1
+                if m and i<len(pageCategory):
+                        pageCategory[i]
+                        tempList.append([uid, x.text, pageCategory[i].text, m.group(1)])
         return tempList
 
 def parsePhotosby(html):
