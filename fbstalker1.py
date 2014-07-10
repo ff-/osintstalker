@@ -324,7 +324,6 @@ def convertID2User(uid):
 def loginFacebook(driver):
 	driver.implicitly_wait(120)
 	driver.get("https://www.facebook.com/")
-	assert "Welcome to Facebook" in driver.title
 	time.sleep(3)
 	driver.find_element_by_id('email').send_keys(facebook_username)
 	driver.find_element_by_id('pass').send_keys(facebook_password)
