@@ -9,6 +9,7 @@ import datetime
 import operator
 import sqlite3
 import os
+from getpass import getpass
 from datetime import datetime
 from datetime import date
 import pytz 
@@ -35,8 +36,8 @@ requests.adapters.DEFAULT_RETRIES = 10
 h = httplib2.Http(".cache")
 
 
-facebook_username = ""
-facebook_password = ""
+global facebook_username
+global facebook_password
 
 global uid
 uid = ""
@@ -2024,8 +2025,10 @@ if __name__ == '__main__':
 		conn.close()
 		sys.exit()
  	else:
-		if len(facebook_username)<1 or len(facebook_password)<1:
-			print "[*] Please fill in 'facebook_username' and 'facebook_password' before continuing."
-			sys.exit()
+                global facebook_username
+                global facebook_password
+                print "Facebook Login"
+                facebook_username = raw_input("    your username: ")
+                facebook_password = getpass("    your password: ")
   		options(sys.argv)
  
